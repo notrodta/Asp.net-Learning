@@ -2,4 +2,14 @@ Issues:
 Cannot attach .mdf to database after manually deleting .mdf files
 https://stackoverflow.com/questions/13001441/delete-mdf-file-from-app-data-causes-exception-cannot-attach-the-file-as-databa
 
+Use SQL Server Object Explorer to delete the database rather than just deleting the .mdf file in Solution Explorer. Otherwise the SQL Server instance still thinks the database name is used and the next time you try to attach a database to the same name it won't work. See the section on Initial Catalog in this MSDN page:
 
+http://msdn.microsoft.com/en-us/library/jj653752.aspx#initialcatalog
+
+or
+
+  sqllocaldb.exe stop v11.0
+  sqllocaldb.exe delete v11.0
+  Update-Database
+
+note: If you want to see what your LocalDb database instance is called, run sqllocaldb info (in the answer above the instance is called v11.0 which is the vs2012 ef5 default)
