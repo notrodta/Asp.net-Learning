@@ -1,0 +1,5 @@
+Issues:
+Cannot attach .mdf to database after manually deleting .mdf files
+https://stackoverflow.com/questions/13001441/delete-mdf-file-from-app-data-causes-exception-cannot-attach-the-file-as-databa
+
+
